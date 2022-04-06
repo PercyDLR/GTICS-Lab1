@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -57,6 +57,7 @@
                     <tr>
                         <th>#</th>
                         <th>Nombre</th>
+                        <th>Descripción</th>
                         <th>Fundación</th>
                         <th>Sede</th>
                         <th></th>
@@ -64,13 +65,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                    <tr th:each="distribuidora, i : ${distribuidoraList}">
+                        <td th:text="${distribuidora.id}"></td>
+                        <td th:text="${distribuidora.nombre}"></td>
+                        <td th:text="${distribuidora.descripcion}"></td>
+                        <td th:text="${distribuidora.fundacion}"></td>
+                        <td th:text="${distribuidora.sede}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/distribuidoras/editar?id=' + ${distribuidora.id}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id=' + ${distribuidora.id}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -81,7 +83,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>

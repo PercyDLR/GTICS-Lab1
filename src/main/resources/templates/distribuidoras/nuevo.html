@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,13 +49,21 @@
             <h2>Nueva Distribuidora</h2>
         </div>
         <div class="container-fluid">
-            <form method="POST">
-                <!-- Completar -->
-                <!-- Completar -->
-                <!-- Completar -->
-                <!-- Completar -->
+            <form method="POST" th:action="@{'/distribuidoras/guardar'}"  class="col-4">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input name="nombre" type="text" class="form-control" id="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="fundacion" class="form-label">Fundación</label>
+                    <input name="fundacion" type="text" class="form-control" id="fundacion">
+                </div>
+                <div class="mb-3">
+                    <label for="sede" class="form-label">Sede</label>
+                    <input name="sede" type="text" class="form-control" id="sede">
+                </div>
 
-                <a href="/distribuidoras/lista" class="btn btn-danger">Cancelar</a>
+                <a th:href="@{/distribuidoras/lista}" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
@@ -64,7 +73,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>

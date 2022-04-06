@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,15 +49,34 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST">
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-
-                    <a  class="btn btn-danger">Cancelar</a>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+            <form method="post" th:action="@{'/juegos/guardar'}" class="col-4" th:object="${juego}">
+                <input type="hidden" th:field="*{id}" />
+                <input type="hidden" th:field="*{precio}" />
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input name="nombre" id="nombre" type="text" class="form-control" th:field="*{nombre}">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" type="text" class="form-control" th:field="*{descripcion}">
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="idplataforma" class="form-label">Plataforma</label>
+                    <select name="idplataforma" class="form-control" id="idplataforma">
+                        <option th:each="plataforma : ${plataformaList}"
+                                th:value="${plataforma.id}"
+                                th:text="${plataforma.nombre}"
+                                th:selected="${plataforma.id == juego.idplataforma}"></option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input name="precio" id="precio" type="text" class="form-control" th:field="*{precio}">
+                </div>
+                <a th:href="@{'/juegos/lista'}"  class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
         </div>
         </main>
     </div>
@@ -64,7 +84,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>

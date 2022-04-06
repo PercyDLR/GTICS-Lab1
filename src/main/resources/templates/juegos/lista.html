@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -62,13 +63,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                    <tr th:each="juego, i : ${juegoList}">
+                        <td th:text="${juego.id}"></td>
+                        <td th:text="${juego.nombre}"></td>
+                        <td th:text="${juego.descripcion}"></td>
+                        <td th:text="${juego.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${juego.id}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${juego.id}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -79,7 +80,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>
