@@ -1,6 +1,7 @@
 package pe.edu.pucp.gtics.lab1221.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class GamesController {
 
     @GetMapping("/lista")
     public String listaJuegos (Model model){
-        List<Games> gamesList = gamesRepository.findAll();
+        List<Games> gamesList = gamesRepository.findByOrderByPrecioAsc();
         model.addAttribute("gamesList", gamesList);
         return "juegos/lista";
     };
