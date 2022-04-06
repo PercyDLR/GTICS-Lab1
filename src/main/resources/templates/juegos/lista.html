@@ -63,13 +63,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="juego, i : ${juegoList}">
-                        <td th:text="${juego.id}"></td>
-                        <td th:text="${juego.nombre}"></td>
-                        <td th:text="${juego.descripcion}"></td>
-                        <td th:text="${juego.precio}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${juego.id}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${juego.id}}">Borrar</a></td>
+                    <tr th:each="game, i : ${gamesList}">
+                        <td th:text="${game.id}"></td>
+                        <td th:text="${game.nombre}"></td>
+                        <td th:text="${game.descripcion}"></td>
+                        <td th:text="${game.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${game.id}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${game.id}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -80,7 +80,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
+                    <div class="text-muted">Grupo 3 - PUCP @ 2022</div>
                 </div>
             </div>
         </footer>
